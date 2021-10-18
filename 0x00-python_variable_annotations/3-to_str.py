@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+"""
+str
+"""
 
 
 def to_str (n: float) -> str:
-    return n
+    """
+    float returns str representation
+    """
+    return str(n)

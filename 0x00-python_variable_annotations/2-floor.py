@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+"""
+floor
+"""
 
 
 def floor (n: float) -> int:
-    return (floor)
+    """
+    takes float and returns floor of the float
+    """
+    return int(n)
 
-if __name__ == '__main__':
-    add (2, 4)
+
