@@ -4,7 +4,7 @@ str
 """
 
 
-def to_str (n: float) -> str:
+def to_str(n: float) -> str:
     """
     float returns str representation
     """

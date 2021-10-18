@@ -4,7 +4,7 @@ Addition
 """
 
 
-def  add (a: float, b: float) -> float:
+def add(a: float, b: float) -> float:
     """
     function add takes two floats and returns the sum
     """
