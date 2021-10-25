@@ -41,5 +41,3 @@ class LRUCache(BaseCaching):
         if element:
             self.sort_time[key] = datetime.now()
         return element
-
-
