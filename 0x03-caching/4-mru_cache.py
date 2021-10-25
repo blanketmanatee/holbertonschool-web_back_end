@@ -23,7 +23,7 @@ class MRUCache(BaseCaching):
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 sorted_keys = sorted(
                     self.sort_time,
-                    key = self.sort_time.get)
+                    key=self.sort_time.get)
                 mru_item = sorted_keys[-2]
                 del self.sort_time[mru_item]
                 del self.cache_data[mru_item]
