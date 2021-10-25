@@ -12,6 +12,7 @@ class BasicCache(BaseCaching):
         """more notes"""
         if key and item:
             self.cache_data[key] = item
+
     def get(self, key):
         """more notes"""
         if key is None or self.cache_data.get(key) is None:
