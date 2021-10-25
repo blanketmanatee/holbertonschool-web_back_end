@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MRU
+MRU cache
 """
 from datetime import datetime
 BaseCaching = __import__('base_caching').BaseCaching
