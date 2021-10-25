@@ -16,12 +16,12 @@ class LIFOCache(BaseCaching):
         assign to dict
         """
         if key and item:
-                self.cache_data[key] = item
+            self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             print("DISCARD: {}".format(self.last_item))
             self.cache_data.pop(self.last_item)
         self.last_item = key
-    
+
     def get(self, key):
         """
         return the value
