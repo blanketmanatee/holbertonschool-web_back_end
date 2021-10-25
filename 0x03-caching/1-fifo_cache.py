@@ -4,7 +4,7 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ 
+    """
     Class inherits from BaseCaching
     """
     def __init__(self):
@@ -19,7 +19,7 @@ class FIFOCache(BaseCaching):
         self.next_out += 1
         key = self.data[self.next_out]
         del self.data[self.next_out], self.cache_data[key]
-    
+
     def _in(self, key, item):
         """
         adds the new item
@@ -40,7 +40,7 @@ class FIFOCache(BaseCaching):
                 self.cache_data[key] = item
             else:
                 self._in(key, item)
-    
+
     def get(self, key):
         """
         return the value
