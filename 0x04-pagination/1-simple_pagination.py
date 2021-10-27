@@ -32,8 +32,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """returns the appropriate page"""
-            for param in [page, page_size]:
-                assert isinstance(param, int) and page > 0
-            self.dataset()
-            range_pagination = index_range(page=page, page_size=page_size)
-            return self.__dataset[range_pagination[0]:range_pagination[1]]
+        for param in [page, page_size]:
+            assert isinstance(param, int) and page > 0
+        self.dataset()
+        range_pagination = index_range(page=page, page_size=page_size)
+        return self.__dataset[range_pagination[0]:range_pagination[1]]
