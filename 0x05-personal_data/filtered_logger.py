@@ -26,10 +26,10 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         return filter_datum(self.fields, self.REDACTION,
-                super().format(record), self.SEPARATOR)
+                    super().format(record), self.SEPARATOR)
 
 
-def filter_datum(fields: List[str], redaction:str, message:str, separator:str) -> str:
+def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
     """ uses a regex to replace occurrences of certain field values"""
     for item in fields:
         message = re.sub(fr'{item}=.+?{separator}',
