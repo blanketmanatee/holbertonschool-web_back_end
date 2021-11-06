@@ -29,14 +29,15 @@ class BasicAuth(Auth):
                                             base64_authorization_header: str
                                             ) -> str:
         """ decode base 64 header """
-        if base64_authorization_header is None or\
-            type(base64_authorization_header) != str:
+        if (not base64_authorization_header or type(base64_authorization_header) != str
+        ):
             return None
         try:
-            data_decode = b64decode(base64_authorization_header)
-            except binascii.Error as err:
-                return None
-            return data_decode.decode('utf-8')
+            base64_b = base64_authorization_header.encode('utf-8')
+            string_bytes = base64_b.b64decode(base64_b)
+            return string_bytes.decode('utf-8')
+        except Exception:
+            return None
 
 
     def extract_user_credentials(self,
