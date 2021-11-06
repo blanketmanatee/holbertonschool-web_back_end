@@ -10,6 +10,7 @@ class Auth:
     def __init__(self) -> None:
         """init init init"""
 
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """return true if auth"""
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
@@ -24,14 +25,12 @@ class Auth:
                     return False
         return True
 
-
     def authorization_header(self, request=None) -> str:
         """return auth head or none"""
         if request is None:
             return None
 
         return request.headers.get('Authorization', None)
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ returns user"""
