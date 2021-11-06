@@ -33,6 +33,6 @@ class Auth:
         return request.headers.get('Authorization', None)
 
 
-def current_user(self, request=None) -> TypeVar('User'):
-    """ returns user"""
-    return request
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ returns user"""
+        return request
