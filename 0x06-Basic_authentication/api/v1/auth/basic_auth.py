@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""BasicAuth"""
+"""BasicAuth to import"""
 from api.v1.auth.auth import Auth
 from base64 import b64decode, binascii
 from models.user import User
@@ -7,9 +7,9 @@ from typing import TypeVar, List
 
 
 class BasicAuth(Auth):
-    """BasicAuth"""
+    """BasicAuth class"""
     def __init__(self) -> None:
-        """init"""
+        """init init init"""
 
 
     def extract_base64_authorization_header(
