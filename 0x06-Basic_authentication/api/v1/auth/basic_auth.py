@@ -54,8 +54,8 @@ class BasicAuth(Auth):
                                             ) -> TypeVar('User'):
             """returns instance or None """
             if user_email is None or type(user_email) != str or\
-                user_pwd is None or type(user_pwd) != str:\
-                    return None
+                user_pwd is None or type(user_pwd) != str:
+                return None
             try:
                 exist_user: List[TypeVar('User')]
                 exist_user = User.search({"email": user_email})
