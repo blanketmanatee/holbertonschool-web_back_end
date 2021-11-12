@@ -11,7 +11,6 @@ class BasicAuth(Auth):
     def __init__(self) -> None:
         """init init init"""
 
-
     def extract_base64_authorization_header(
                                             self,
                                             authorization_header: str

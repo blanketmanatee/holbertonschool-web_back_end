@@ -22,7 +22,7 @@ class Auth:
                     return False
                 elif path == paths:
                     return False
-        return True
+        return False
 
     def authorization_header(self, request=None) -> str:
         """return auth head or none"""
