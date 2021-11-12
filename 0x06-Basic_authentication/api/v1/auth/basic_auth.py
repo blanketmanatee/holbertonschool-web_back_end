@@ -61,12 +61,11 @@ class BasicAuth(Auth):
                 exist_user = User.search({"email": user_email})
             except Exception:
                 return None
-            
+
             for user in exist_user:
                 if user.is_valid_password(user_pwd):
                     return user
             return None
-
 
         def current_user(self, request=None) -> TypeVar('User'):
             """ returns infor on users"""
@@ -74,7 +73,7 @@ class BasicAuth(Auth):
 
             if header is None:
                 return None
-            
+
             auth_head64: str = self.extract_base64_authorization_header(header)
 
             if auth_head64 is None:
@@ -84,10 +83,10 @@ class BasicAuth(Auth):
 
             if decode_auth is None:
                 return decode_auth
-            
+
             mail: str
             passwd: str
-            mail, passwd = self,extract_user_credentials(decode_auth)
+            mail, passwd = self, extract_user_credentials(decode_auth)
 
             if mail is None or passwd is None:
                 return None
