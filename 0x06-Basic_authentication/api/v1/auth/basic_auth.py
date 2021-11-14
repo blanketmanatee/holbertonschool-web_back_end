@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """BasicAuth to import"""
 from api.v1.auth.auth import Auth
+import base64
 from base64 import b64decode, binascii
 from models.user import User
 from typing import TypeVar, List
@@ -21,7 +22,7 @@ class BasicAuth(Auth):
             or not authorization_header.startswith('Basic ')\
                 and not authorization_header.endswith(' '):
             return None
-        return authorization_header.split(' ')[1]
+        return authorization_header.split()[1]
 
     def decode_base64_authorization_header(
                                             self,
