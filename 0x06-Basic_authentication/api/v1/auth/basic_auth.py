@@ -58,8 +58,7 @@ class BasicAuth(Auth):
                     user_pwd is None or type(user_pwd) != str:
                 return None
             try:
-                exist_user: List[TypeVar('User')]
-                exist_user = User.search({"email": user_email})
+                user = User.search({'email': user_email})
             except Exception:
                 return None
 
