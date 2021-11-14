@@ -45,6 +45,8 @@ def forbidden(error) -> str:
 @app.before_request
 def before_request() -> str:
     """ before each req return str or nothing"""
+    if auth is None:
+        return
 
     expath = ['/api/v1/status',
               '/api/v1/unauthorized/',
