@@ -22,15 +22,15 @@ class Auth:
                     return False
                 elif path == paths:
                     return False
-        return True
+        return False
 
     def authorization_header(self, request=None) -> str:
         """return auth head or none"""
         if request is None:
             return None
 
-        return request.headers.get('Authorization', None)
+        return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ returns user"""
-        return request
+        return None
