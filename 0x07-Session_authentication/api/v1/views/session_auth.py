@@ -30,7 +30,7 @@ def login() -> str:
             return jsonify({"error": "wrong password"}), 401
 
     @app_views.route('/auth_session/logout', methods=['DELETE'],
-                        strict_slashes=False)
+                    strict_slashes=False)
     def logout() -> str:
         """ view for route '/auth_session/logout, DELETE"""
         from api.v1.app import auth
