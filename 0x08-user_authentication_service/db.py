@@ -11,7 +11,7 @@ from user import Base, User
 
 
 class DB:
-    """DB class"""
+    """DB class  notes"""
     def __init__(self) -> None:
         """notes"""
         self._engine = create_engine("sqlite:///a.db", echo=False)
