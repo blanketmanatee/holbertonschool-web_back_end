@@ -47,6 +47,7 @@ def logout():
     AUTH.destroy_session(user_id)
     return redirect('/')
 
+
 @app.route('/profile', methods=['GET'], strict_slashes=False)
 def profile():
     """user profile"""
@@ -65,7 +66,7 @@ def get_reset_password_token():
         token = AUTH.get_reset_password_token(email)
         return jsonify({"email": email, "reset_token": token}), 200
     except ValueError:
-        abort (403)
+        abort(403)
 
 
 @app.route('/reset_password', method=["PUT"], strict_slashes=False)
@@ -83,4 +84,3 @@ def update_password():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
-
