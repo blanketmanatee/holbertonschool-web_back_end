@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""USER"""
+"""USER notes"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.sql.expression import null
