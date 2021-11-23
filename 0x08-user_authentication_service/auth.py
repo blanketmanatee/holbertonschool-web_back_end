@@ -11,9 +11,11 @@ def _hash_password(password: str) -> str:
     """ ps str returns str"""
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
+
 def _generate_uuid() -> str:
     """ returns a str rep of uuid"""
     return str(uuid4())
+
 
 class Auth:
     """ AUTH CLASS"""
@@ -40,7 +42,7 @@ class Auth:
             return False
         else:
             return bcrypt.checkpw(password=password.encode('utf-8'),
-                                hashed_password=user.hashed_password)
+                                    hashed_password=user.hashed_password)
 
     def create_session(self, email:str) -> str:
         """returns session ID"""
