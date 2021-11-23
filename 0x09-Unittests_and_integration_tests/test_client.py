@@ -42,11 +42,11 @@ class TestGithubOrgClient(unittest.TestCase):
                           "_public_repos_url",
                           new_callable=PropertyMock,
                           return_value="https://api.github.com/") as mock_pub:
-                test_client = GithubOrgClient("holberton")
-                test_return = test_client.publick_repos()
-                self.assertEqual(test_return, ["holberton"])
-                mock_get.assert_called_once
-                mock_pub.assert_called_once
+            test_client = GithubOrgClient("holberton")
+            test_return = test_client.publick_repos()
+            self.assertEqual(test_return, ["holberton"])
+            mock_get.assert_called_once
+            mock_pub.assert_called_once
     @parameterized.expand([parameterized({"license": {"key": "my_license"}}, "my_license, True"),
     ({"license": {"key": "other_license"}}, "my_license", False),
     ])
