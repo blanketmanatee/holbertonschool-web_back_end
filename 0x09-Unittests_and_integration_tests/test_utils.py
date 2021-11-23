@@ -17,16 +17,16 @@ class TestAccessNestedMap(unittest.TestCase):
         """tests return"""
         self.assertEqual(access_nested_map(nested_map, path), answer)
 
-        """test KeyError is raised"""
-        @parameterized.expand([
-            ({}, ("a",)),
-            ({"a": 1}, ("a", "b")),
-        ])
-        def test_access_nested_map_exception(self, nested_map, path):
-            """tests that keyerror is raised"""
-            with self.assertRaises(KeyError) as error:
-                access_nested_map(nested_map, path)
-            self.assertEqual(error.exception.args[0], path[-1])
+    """test KeyError is raised"""
+    @parameterized.expand([
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b")),
+    ])
+    def test_access_nested_map_exception(self, nested_map, path):
+        """tests that keyerror is raised"""
+        with self.assertRaises(KeyError) as error:
+            access_nested_map(nested_map, path)
+        self.assertEqual(error.exception.args[0], path[-1])
 
 
 class TestGetJson(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
     ])
-    @path('test_utils.get_json')
+    @patch('test_utils.get_json')
     def test_get_json(self, test_url, test_payload, mock_get):
         """tests utils.json"""
         mock_get.return_value = test_payload
@@ -43,23 +43,23 @@ class TestGetJson(unittest.TestCase):
         self.assertEqual(result, test_payload)
 
 
-class TestMemoize(unittest.TestCase)
-"""TESTS"""
-def test_memoize(self):
-    """tests a_property """
-    class TestClass:
-        """class"""
-        def a_method(self):
-            """method"""
-            return 42
+class TestMemoize(unittest.TestCase):
+    """TESTS"""
+    def test_memoize(self):
+        """tests a_property """
+        class TestClass:
+            """class"""
+            def a_method(self):
+                """method"""
+                return 42
 
 
-        @memoize
-        def a_property(self):
-            """Property"""
-            return self.a_method()
-    with patch.object(TestClass, "a_method") as mockMethod:
-        test_class = TestClass()
-        test_class.a_property
-        test_class.a_property
-        mockMethod.assert_called_once
+            @memoize
+            def a_property(self):
+                """Property"""
+                return self.a_method()
+        with patch.object(TestClass, "a_method") as mockMethod:
+            test_class = TestClass()
+            test_class.a_property
+            test_class.a_property
+            mockMethod.assert_called_once
