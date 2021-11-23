@@ -1,4 +1,4 @@
-#!/usr/bin/env python 3
+#!/usr/bin/env python3
 """Parameterize and patch as decorators"""
 import unittest
 from unittest.mock import patch, PropertyMock, Mock
