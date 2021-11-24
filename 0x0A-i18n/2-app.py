@@ -31,5 +31,5 @@ def get_locale():
     return request.accept_languages.best_match(app.confit['LANGUAGES'])
 
 
-if __name__=="__main__":
+if __name__== "__main__":
     app.run()
