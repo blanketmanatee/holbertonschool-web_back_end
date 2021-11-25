@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Setup Babel"""
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, gettext
+from os import getenv
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -22,7 +23,7 @@ app.config.from_object(Config)
 @app.route('/')
 def route():
     """flask app"""
-    return render_template("2-index.html")
+    return render_template("3-index.html")
 
 
 @babel.localeselector
@@ -32,4 +33,6 @@ def get_locale():
 
 
 if __name__ == "__main__":
-    app.run()
+    host = getenv("API_HOST", "0.0.0.0")
+    port = getenv("API_PORT", "5000")
+    app.run(host=host, port=port)
