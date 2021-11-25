@@ -47,7 +47,7 @@ def get_user():
     """returns user dict"""
     try:
         userId = request.args.get('login_as')
-        return users[int(userId)]
+        return users.get(int(login_as))
     except Exception:
         return None
 
@@ -55,7 +55,7 @@ def get_user():
 @app.before_request
 def before_request():
     """find a user if exists"""
-    g.user = get_user()
+    g.user = get_user(request.args.get('login_as'))
 
 
 if __name__ == "__main__":
