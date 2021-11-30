@@ -58,6 +58,7 @@ def replay(method: Callable):
         print("{}(*('{}',)) -> {}".format(method_name, i.decode("utf-8"),
                                         o.decode("utf-8")))
 
+
 class Cache:
     """Cache class"""
 
@@ -75,7 +76,7 @@ class Cache:
         key = str(uuid.uuid1())
         self._redis.set(key, data)
         return key
-    
+
     def get(self,
             key: str,
             fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
