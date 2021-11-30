@@ -80,11 +80,11 @@ class Cache:
     def get(self,
             key: str,
             fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
-            """
-            get method takes key str arg and optional callable arg
-            """
-            res = self._redis.get(key)
-            return fn(res) if fn else res
+        """
+        get method takes key str arg and optional callable arg
+        """
+        res = self._redis.get(key)
+        return fn(res) if fn else res
     
     def get_str(self, data: bytes) -> str:
         """
