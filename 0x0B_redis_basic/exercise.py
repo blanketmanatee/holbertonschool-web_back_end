@@ -6,6 +6,7 @@ import uuid
 import sys
 from functools import wraps
 
+
 def count_calls(method: Callable) -> Callable:
     """
     Create and return function that increments the count for
