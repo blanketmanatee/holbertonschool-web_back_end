@@ -85,13 +85,13 @@ class Cache:
         """
         res = self._redis.get(key)
         return fn(res) if fn else res
-    
+
     def get_str(self, data: bytes) -> str:
         """
         paramaterize Cache.get w correct funtion
         """
         return data.decode('utf-8')
-    
+
     def get_int(self, data: bytes) -> int:
         """
         paramaterize cache.get w correct function
