@@ -53,10 +53,10 @@ def replay(method: Callable):
     outputs = r.lrange("{}:outputs".format(method_name), 0, -1)
 
     print("{} was called {} times:".format(method_name,
-                                        r.get(method_name).decode("utf-8")))
+                                         r.get(method_name).decode("utf-8")))
     for i, o in tuple(zip(inputs, outputs)):
         print("{}(*('{}',)) -> {}".format(method_name, i.decode("utf-8"),
-                                           o.decode("utf-8")))
+                                            o.decode("utf-8")))
 
 
 class Cache:
