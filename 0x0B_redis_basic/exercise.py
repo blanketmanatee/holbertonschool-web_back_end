@@ -39,7 +39,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush("{}:inputs".format(key), str(args))
         result = method(self, *args)
         self._redis.rpush("{}:outputs".format(key),
-                            str(result))
+                        str(result))
         return result
     return wrapper
 
@@ -53,10 +53,10 @@ def replay(method: Callable):
     outputs = r.lrange("{}:outputs".format(method_name), 0, -1)
 
     print("{} was called {} times:".format(method_name,
-            r.get(method_name).decode("utf-8")))
+                r.get(method_name).decode("utf-8")))
     for i, o in tuple(zip(inputs, outputs)):
         print("{}(*('{}',)) -> {}".format(method_name, i.decode("utf-8"),
-                o.decode("utf-8")))
+                    o.decode("utf-8")))
 
 class Cache:
     """Cache class"""
