@@ -6,6 +6,41 @@ import uuid
 import sys
 from functools import wraps
 
+def count_calls(method: Callable) -> Callable:
+    """
+    Create and return function that increments the count for
+    that key every time the method is called and returns the
+    value returned by the original method.
+    """
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args, **kwds):
+        """
+        wrapper function
+        """
+        self._redis.incr(key)
+        return method(self, *args, **kwds)
+    return wrapper
+
+
+def call_history(method: Callable) -> Callable:
+    """
+    Decorator to store history of input and output
+    """
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args):
+        """
+        wrapper function
+        """
+        self._redis.rpush("{}:inputs".format(key), str(args))
+        result = method(self, *args)
+        self._redis.rpush("{}:outputs".format(key),
+                            str(result))
+        return result
+    return wrapper
 
 class Cache:
     """Cache class"""
