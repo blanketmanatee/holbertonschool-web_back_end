@@ -46,7 +46,7 @@ def call_history(method: Callable) -> Callable:
 
 def replay(method: Callable):
     """display history"""
-    r = method.__self.__._redis
+    r = method.__self__._redis
     method_name = method.__qualname__
 
     inputs = r.lrange("{}:inputs".format(method_name), 0, -1)
