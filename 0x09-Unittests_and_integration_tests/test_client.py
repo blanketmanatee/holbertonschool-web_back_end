@@ -52,7 +52,7 @@ class TestGithubOrgClient(unittest.TestCase):
                                          {"key": "my_license"}},
                                          "my_license, True"),
                            ({"license": {"key": "other_license"}},
-                           "my_license", False),])
+                           "my_license", False), ])
     def test_has_license(self, repo, license_key, expected_return):
         """tests for license"""
         test_client = GithubOrgClient("holberton")
@@ -75,12 +75,12 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         def tearDownClass(cls):
             """stop the patch"""
             cls.get_patcher.stop()
-        
+
         def test_public_repos(self):
             """ test githuborgclient.public_repos"""
             test_class = GithubOrgClient("holberton")
             assert True
-        
+
         def test_public_repos_with_license(self):
             """rest public_repos with arg license"""
             test_class = GithubOrgClient("holberton")
