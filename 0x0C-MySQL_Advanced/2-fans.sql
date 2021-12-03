@@ -2,4 +2,4 @@
 SELECT
 origin AS origin, SUM(fans) AS nb_fans
 FROM metal_bands
-GROUP BY originORDER BY nb_fans DESC;
+GROUP BY origin ORDER BY nb_fans DESC;
