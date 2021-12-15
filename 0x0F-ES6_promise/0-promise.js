@@ -1,9 +1,9 @@
 function getResponseFromApi() {
-  return new Promise((resonse, reject) => {
+  return new Promise((resolve, reject) => {
     if (true) {
-    resolve();
+      resolve();
     } else {
-    reject();
-        }
+      reject();
+    }
   });
 }
