@@ -34,7 +34,7 @@ export default class HolbertonCourse {
 
   set students(newStudents) {
     if (newStudents.constructor !== Array && newStudents.every((el) => typeof el === 'string')) {
-          throw TypeError ('students must be an array of strings');
+          throw TypeError('students must be an array of strings');
     }
     this._students = newStudents;
   }
