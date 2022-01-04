@@ -31,11 +31,11 @@ function countStudents(path) {
                     count: newCount,
                     students: newStudents,
                   };
-                                }
-                            }
-                            i += 1;
-                        }
-                    };
+                }
+              }
+              i += 1;
+            }
+          };
 
                     const display = async () => {
                         getLines();
