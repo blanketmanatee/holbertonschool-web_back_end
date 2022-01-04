@@ -1,24 +1,24 @@
 const fs = require('fs');
 
 function countStudents(path) {
-    const promise = new Promise((resolve, reject) => {
-        fs.readFile(path,
-            'utf-8',
-            (error, results) => {
-                if (error) {
-                    reject(Error('Cannot load the database'));
-                } else {
-                    const lines = results.split('\n');
-                    let i = 0;
-                    let countStudents = 0;
-                    let msg = '';
-                    const fields = {};
+  const promise = new Promise((resolve, reject) => {
+    fs.readFile(path,
+      'utf-8',
+      (error, results) => {
+        if (error) {
+          reject(Error('Cannot load the database'));
+        } else {
+          const lines = results.split('\n');
+          let i = 0;
+          let countStudents = 0;
+          let msg = '';
+          const fields = {};
 
-                    const getLines = () => {
-                        for (const line of lines) {
-                            if (line.trim() !== '' && i > 0) {
+          const getLines = () => {
+              for (const line of lines) {
+                    if (line.trim() !== '' && i > 0) {
                                 countStudents += 1;
-                                const [fname, lname, age, field] = line.split(',');
+                                      const [fname, lname, age, field] = line.split(',');
                                 if (!fields[field]) {
                                     fields[field] = {
                                         count: 1,
