@@ -15,7 +15,7 @@ function countStudents(path) {
           const fields = {};
 
           const getLines = () => {
-              for (const line of lines) {
+            for (const line of lines) {
                     if (line.trim() !== '' && i > 0) {
                               countStudents += 1;
                               const [fname, lname, age, field] = line.split(',');
