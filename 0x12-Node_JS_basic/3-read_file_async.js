@@ -24,13 +24,13 @@ function countStudents(path) {
                     count: 1,
                     students: [fname],
                   };
-                                } else {
-                                    const newCount = fields[field].count + 1;
-                                    const newStudents = (fields[field].students).concat(fname);
-                                    fields[field] = {
-                                        count: newCount,
-                                        students: newStudents,
-                                    };
+                } else {
+                  const newCount = fields[field].count + 1;
+                  const newStudents = (fields[field].students).concat(fname);
+                  fields[field] = {
+                    count: newCount,
+                    students: newStudents,
+                  };
                                 }
                             }
                             i += 1;
