@@ -37,18 +37,18 @@ function countStudents(path) {
             }
           };
 
-                    const display = async () => {
-                        getLines();
-                        console.log(`Number of students: ${countStudents}`);
-                        msg += `Number of students: ${countStudents}\n`;
-                        for (const field of Object.keys(fields)) {
-                            const n = fields[field].count;
-                            const names = fields[field].students.join(', ');
-                            console.log(`Number of students in ${field}: ${n}. List: ${names}`);
-                            msg += `Number of students in ${field}: ${n}. List: ${names}\n`;
-                        }
-                        msg = msg.slice(0, -1);
-                    };
+          const display = async () => {
+            getLines();
+            console.log(`Number of students: ${countStudents}`);
+            msg += `Number of students: ${countStudents}\n`;
+            for (const field of Object.keys(fields)) {
+              const n = fields[field].count;
+              const names = fields[field].students.join(', ');
+              console.log(`Number of students in ${field}: ${n}. List: ${names}`);
+              msg += `Number of students in ${field}: ${n}. List: ${names}\n`;
+            }
+            msg = msg.slice(0, -1);
+          };
 
                     display();
                     resolve(msg);
