@@ -18,26 +18,26 @@ function countStudents(path) {
             students: [fname],
           };
         } else {
-        const newCount = fields[field].count + 1;
+          const newCount = fields[field].count + 1;
           const newStudents = (fields[field].students).concat(fname);
           fields[field] = {
             count: newCount,
             students: newStudents,
           };
         }
-            }
-            i += 1;
-        }
-
-        console.log(`Number of students: ${countStudents}`);
-        for (const field of Object.keys(fields)) {
-            const n = fields[field].count;
-            const names = fields[field].students.join(', ');
-            console.log(`Number of students in ${field}: ${n}. List: ${names}`);
-        }
-    } catch (error) {
-        throw new Error('Cannot load the database');
+      }
+      i += 1;
     }
+
+    console.log(`Number of students: ${countStudents}`);
+    for (const field of Object.keys(fields)) {
+      const n = fields[field].count;
+      const names = fields[field].students.join(', ');
+      console.log(`Number of students in ${field}: ${n}. List: ${names}`);
+    }
+  } catch (error) {
+    throw new Error('Cannot load the database');
+  }
 }
 
 module.exports = countStudents;
