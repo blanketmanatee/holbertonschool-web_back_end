@@ -50,13 +50,13 @@ function countStudents(path) {
             msg = msg.slice(0, -1);
           };
 
-                    display();
-                    resolve(msg);
-                }
-            });
-    });
+          display();
+          resolve(msg);
+        }
+      });
+  });
 
-    return promise;
+  return promise;
 }
 
 module.exports = countStudents;
