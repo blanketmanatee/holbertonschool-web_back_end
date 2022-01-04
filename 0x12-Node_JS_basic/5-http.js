@@ -11,14 +11,14 @@ const app = http.createServer(async (req, res) => {
   } else if (req.url === '/students') {
     let dbInfo = 'This is the list of our students\n';
     await countStudents(process.argv[2])
-    .then((msg) => {
-      dbInfo += msg;
-      res.end(dbInfo);
-    })
-    .catch((err) => {
-      dbInfo += err.message;
-      res.end(dbInfo);
-    });
+      .then((msg) => {
+        dbInfo += msg;
+        res.end(dbInfo);
+      })
+      .catch((err) => {
+        dbInfo += err.message;
+        res.end(dbInfo);
+      });
   }
 });
 
