@@ -1,25 +1,27 @@
-'use strict';
-const assert = require('assert');
-const calculateNumber = require('./1-calcul');
+const assert = require("assert");
+const calculateNumber = require("./1-calcul.js");
 
-describe('calculateNumber type == SUM', () => {
-    it('checks output for SUM', () => {
-        assert.strictEqual(calculateNumber('SUM', 1.4, 4.5), 6);
-        assert.strictEqual(calculateNumber('SUM', 1, 3), 4);
+describe('calculateNumber', () => {
+  describe('when type is SUM', () => {
+    it('it round the first argument', () => {
+        assert.equal(calculateNumber('SUM', 1.0, 0), 1);
+        assert.equal(calculateNumber('SUM', 1.3, 0), 1);
+        assert.equal(calculateNumber('SUM', 1.7, 0), 2);
     });
-});
-
-describe('calculateNumber type == SUBTRACT', () => {
-    it('checks output of SUBTRACT', () => {
-        assert.strictEqual(calculateNumber('SUBTRACT', 4, 3), 1);
-        assert.strictEqual(calculateNumber('SUBTRACT', 2, 4.5), -3);
+    
+    it('it round the second argument', () => {
+        assert.equal(calculateNumber('SUM', 0, 1.0), 1);
+        assert.equal(calculateNumber('SUM', 0, 1.3), 1);
+        assert.equal(calculateNumber('SUM', 0, 1.7), 2);
     });
-});
-
-describe('calculateNumber type == DIVIDE', () => {
-    it('checks output for DIVIDE', () => {
-        assert.strictEqual(calculateNumber('DIVIDE', 0.0, 2), 0);
-        assert.strictEqual(calculateNumber('DIVIDE', -1, 1), -1);
-        assert.strictEqual(calculateNumber('DIVIDE', 1, 0), 'Error');
+    
+    it('it should return the right number', () => {
+        assert.equal(calculateNumber('SUM', 1.3, 0), 1);
+        assert.equal(calculateNumber('SUM', 0, 1.2), 1);
+        assert.equal(calculateNumber('SUM', 1.3, 1.3), 2);
+        assert.equal(calculateNumber('SUM', 1.7, 1.2), 3);
+        assert.equal(calculateNumber('SUM', 1.3, 1.8), 3);
+        assert.equal(calculateNumber('SUM', 1.6, 1.8), 4);
     });
+  });
 });
