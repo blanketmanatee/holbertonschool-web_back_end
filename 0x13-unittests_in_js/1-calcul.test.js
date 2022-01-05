@@ -20,6 +20,8 @@ describe('calculateNumber type == DIVIDE', () => {
     it('checks output for DIVIDE', () => {
         assert.strictEqual(calculateNumber('DIVIDE', 0.0, 2), 0);
         assert.strictEqual(calculateNumber('DIVIDE', -1, 1), -1);
+        assert.equal(calculateNumber('DIVIDE', 10.3, 1.3), 10);
+        assert.equal(calculateNumber('DIVIDE', 10.7, 1.2), 11);
         assert.strictEqual(calculateNumber('DIVIDE', 1, 0), 'Error');
     });
 });
