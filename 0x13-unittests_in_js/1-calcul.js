@@ -2,7 +2,7 @@
 const calculateNumber = (type, a, b) => {
     switch (type) {
         case 'SUM':
-            return Math.round(a) - Math.round(b);
+            return Math.round(a) + Math.round(b);
             break;
         case 'SUBTRACT':
             return Math.round(a) - Math.round(b);
