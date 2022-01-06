@@ -1,30 +1,21 @@
-const { expect } = require('chai');
+'use strict';
+const chai = require('chai');
 const sinon = require('sinon');
 
+const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./4-payment');
+const { spy } = require('sinon');
 
-describe('sendPaymentRequestToApi', () => {
-  let consoleSpy;
+describe('sendPaymentRequestToApi function', () => {
+    const spyConsole = sinon.spy(console, 'log');
 
-  beforeEach(() => {
-    consoleSpy = sinon.spy(console, 'log');
-  });
-
-  afterEach(() => {
-    consoleSpy.restore();
-  });
-
-  it('logs to the console the right messages', () => {
-    sendPaymentRequestToApi(100, 131)
-    sendPaymentRequestToApi(100.3, 131.3)
-    sendPaymentRequestToApi(100.6, 131.3)
-    sendPaymentRequestToApi(100.3, 131.6)
-    sendPaymentRequestToApi(100.6, 131.6)
-
-    expect(consoleSpy.calledWith('The total is: 231')).to.be.true;
-    expect(consoleSpy.calledWith('The total is: 231')).to.be.true;
-    expect(consoleSpy.calledWith('The total is: 232')).to.be.true;
-    expect(consoleSpy.calledWith('The total is: 232')).to.be.true;
-    expect(consoleSpy.calledWith('The total is: 233')).to.be.true;
-  });
+    it('validate usage of Utils', () => {
+        const stubUtils = sinon.stub(Utils, 'calculateNumber');
+        stubUtils.withArgs('SUM', 100, 20).returns(10);
+        sendPaymentRequestToApi(100, 20);
+        chai.expect(spyUtils.calledOnce).to.be.true;
+        chai.expect(spyUtils.calledWith('SUM', 100, 20)).to.be.true;
+        stubUtils.restore()
+        spyConsole.restore();
+    });
 });
