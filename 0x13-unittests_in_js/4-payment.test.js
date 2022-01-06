@@ -6,10 +6,13 @@ const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./4-payment');
 const { spy } = require('sinon');
 
-describe('sendPaymentRequestToApi function', () => {
-    const spyConsole = sinon.spy(console, 'log');
+describe('sendPaymentRequestToApi', () => {
+    it('call calculateNumber', () => {
+        const stub = sinon.stub(utils, 'calculateNumber');
+        stub returns(10);
 
-    it('validate usage of Utils', () => {
+        const spyConsole = sinon.spy(console, 'log');
+
         const stubUtils = sinon.stub(Utils, 'calculateNumber');
         stubUtils.withArgs('SUM', 100, 20).returns(10);
         sendPaymentRequestToApi(100, 20);
