@@ -1,25 +1,24 @@
-const chai = require('chai');
-const expect = chai.expect;
+const expect = require('chai');
 const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber type == SUM', () => {
     it('checks output for SUM', () => {
-        expect(calculateNumber('SUM', 1.4, 4.5), 6);
-        expect(calculateNumber('SUM', 1, 3), 4);
+        expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
+        expect(calculateNumber('SUM', 1, 3)).to.equal(4);
     });
 });
 
 describe('calculateNumber type == SUBTRACT', () => {
     it('checks output of SUBTRACT', () => {
-        chai.expect(calculateNumber('SUBTRACT', 4, 3), 1);
-        chai.expect(calculateNumber('SUBTRACT', 2, 4.5), -3);
+        chai.expect(calculateNumber('SUBTRACT', 4, 3).to.equal(1);
+        chai.expect(calculateNumber('SUBTRACT', 2, 4.5).to.equal(-3);
     });
 });
 
 describe('calculateNumber type == DIVIDE', () => {
     it('checks output for DIVIDE', () => {
-        chai.expect(calculateNumber('DIVIDE', 0.0, 2), 0);
-        chai.expect(calculateNumber('DIVIDE', -1, 1), -1);
-        chai.expect(calculateNumber('DIVIDE', 1, 0), 'Error');
+        chai.expect(calculateNumber('DIVIDE', 0.0, 2).to.equal(0);
+        chai.expect(calculateNumber('DIVIDE', -1, 1).to.equal(-1);
+        chai.expect(calculateNumber('DIVIDE', 1, 0).to.equal('Error');
     });
 });
