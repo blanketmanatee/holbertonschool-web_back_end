@@ -44,34 +44,34 @@ class Server:
         with two integer arguments: index
         with a None default value and page_size
         with default value of 10."""
-            assert index >= 0 and index < len(self.__indexed_dataset)
+        assert index >= 0 and index < len(self.__indexed_dataset)
 
-            data = []
-            next_index = None
-            i = 0
+        data = []
+        next_index = None
+        i = 0
 
-            for k, v in self.__indexed_dataset.items():
+        for k, v in self.__indexed_dataset.items():
 
-                if self.__indexed_dataset.get(index):
-                    if k == index:
-                        data.append(v)
-                        j = k
-                        i = k
-                    elif k > index:
-                        if i < (j + page_size):
-                            next_index = k
-                            break
-                else:
-                    if i >= index and i < (index + page_size):
-                        data.append(v)
-                    elif i == (index + page_size):
+            if self.__indexed_dataset.get(index):
+                if k == index:
+                    data.append(v)
+                    j = k
+                    i = k
+                elif k > index:
+                    if i < (j + page_size):
                         next_index = k
                         break
-                i += 1
+            else:
+                if i >= index and i < (index + page_size):
+                    data.append(v)
+                elif i == (index + page_size):
+                    next_index = k
+                    break
+            i += 1
 
-            return {
-                'index': index,
-                'next_index': next_index,
-                'page_size': page_size,
-                'data': data
-            }
+        return {
+            'index': index,
+            'next_index': next_index,
+            'page_size': page_size,
+            'data': data
+        }
