@@ -11,15 +11,15 @@ describe('calculateNumber type == SUM', () => {
 
 describe('calculateNumber type == SUBTRACT', () => {
     it('checks output of SUBTRACT', () => {
-        chai.expect(calculateNumber('SUBTRACT', 4, 3), 1);
-        chai.expect(calculateNumber('SUBTRACT', 2, 4.5), -3);
+        chai.expect(calculateNumber('SUBTRACT', 4, 3)).to.equal(1);
+        chai.expect(calculateNumber('SUBTRACT', 2, 4.5)).to.equal(-3);
     });
 });
 
 describe('calculateNumber type == DIVIDE', () => {
     it('checks output for DIVIDE', () => {
-        chai.expect(calculateNumber('DIVIDE', 0.0, 2), 0);
-        chai.expect(calculateNumber('DIVIDE', -1, 1), -1);
-        chai.expect(calculateNumber('DIVIDE', 1, 0), 'Error');
+        chai.expect(calculateNumber('DIVIDE', 0.0, 2)).to.equal(0);
+        chai.expect(calculateNumber('DIVIDE', -1, 1)).to.equal(-1);
+        chai.expect(calculateNumber('DIVIDE', 1, 0)).to.equal('Error');
     });
 });
