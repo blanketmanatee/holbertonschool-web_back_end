@@ -4,8 +4,8 @@ const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber type == SUM', () => {
     it('checks output for SUM', () => {
-        chai.expect(calculateNumber('SUM', 1.4, 4.5), 6);
-        chai.expect(calculateNumber('SUM', 1, 3), 4);
+        expect(calculateNumber('SUM', 1.4, 4.5), 6);
+        expect(calculateNumber('SUM', 1, 3), 4);
     });
 });
 
