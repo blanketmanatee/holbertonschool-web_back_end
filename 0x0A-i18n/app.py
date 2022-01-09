@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Setup Babel"""
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext
+import pytz
+import datetime
 from os import getenv
 
 app = Flask(__name__)
@@ -29,7 +31,7 @@ app.config.from_object(Config)
 @app.route('/')
 def route():
     """flask app"""
-    return render_template("6-index.html")
+    return render_template("index.html")
 
 
 @babel.localeselector
@@ -62,6 +64,29 @@ def get_user():
 def before_request():
     """find a user if exists"""
     g.user = get_user()
+
+
+@babel.timezoneselector
+def get_timezone():
+    """get the timezone"""
+    localTimezone = request.args.get('timezone')
+    if localTimezone:
+        if localTimezone in pytz.all_timezones:
+            return localTimezone
+        else:
+            raise pytz.exceptions.UnknowTimeZoneError
+    try:
+        userId = request.args.get('login_as')
+        user = users[int(userId)]
+        localTimezone = user['timezone']
+    except Exception:
+        localTimezone = None
+    if localTimezone:
+        if localTimezone in pytz.all_timezones:
+            return localTimezone
+        else:
+            raise pytz.exceptions.UnknownTimeZoneError
+    return app.config['BABEL_DEFAULT_TIMEZONE']
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
