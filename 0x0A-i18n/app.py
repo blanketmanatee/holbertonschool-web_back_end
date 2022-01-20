@@ -60,6 +60,7 @@ def get_user():
     except Exception:
         return None
 
+
 @app.before_request
 def before_request():
     """find a user if exists"""
