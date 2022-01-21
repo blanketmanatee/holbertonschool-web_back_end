@@ -60,7 +60,7 @@ def register_user(email, password):
         return reset_token
 
     def update_password(email: str, reset_token: str,
-                    new_password: str) -> None:
+                        new_password: str) -> None:
         """advanced"""
         data = {
             "email": email,
