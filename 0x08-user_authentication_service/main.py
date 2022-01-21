@@ -59,7 +59,8 @@ def register_user(email, password):
         reset_token = response.json().get("reset_token")
         return reset_token
 
-    def update_password(email: str, reset_token: str, new_password: str) -> None:
+    def update_password(email: str, reset_token: str, 
+          new_password: str) -> None:
         """advanced"""
         data = {
             "email": email,
