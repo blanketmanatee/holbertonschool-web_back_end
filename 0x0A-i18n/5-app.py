@@ -30,7 +30,7 @@ app.config.from_object('5-app.Config')
 @app.route('/', methods=['GET'], strict_slashes=False)
 def route():
     """flask app"""
-    return render_template("5-index.html")
+    return render_template('5-index.html')
 
 
 @babel.localeselector
@@ -43,6 +43,7 @@ def get_locale():
     else:
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 def get_user():
     """returns user dict"""
     if request.args.get('login_as'):
@@ -52,10 +53,11 @@ def get_user():
     else:
         return None
 
+
 @app.before_request
 def before_request():
     """find a user if exists"""
-    g.user = get_user(request.args.get('login_as'))
+    g.user = get_user()
 
 
 if __name__ == "__main__":
