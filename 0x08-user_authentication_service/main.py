@@ -13,7 +13,6 @@ def register_user(email, password):
     assert response.status_code == 200, "Test fail"
     print("Task validate: 'register_user'")
 
-
     def log_in_wrong_password(email: str, password: str) -> None:
         """advanced"""
         data = {"email": email, "password": password}
@@ -49,7 +48,7 @@ def register_user(email, password):
         data = {"session_id": session_id}
         response = requests.delete(f'{URL}/sessions', cookies=data)
         answer response.status_code == 200, "Test fail"
-        print ("Task validate: 'log_out'")
+        print("Task validate: 'log_out'")
 
     def reset_password_token(email: str) -> str:
         """advanced task"""
