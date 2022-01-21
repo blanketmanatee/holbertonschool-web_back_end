@@ -1,10 +1,10 @@
 'use strict';
 const chai = require('chai');
 const sinon = require('sinon');
+const {spy, stub } = require('sinon');
 
 const Utils = require('./utils');
-const sendPaymentRequestToApi = require('./3-payment');
-const { spy } = require('sinon');
+const sendPaymentRequestToApi = require('./4-payment');
 
 describe('sendPaymentRequestToApi function', () => {
     const spyUtils = sinon.spy(Utils, 'calculateNumber');
