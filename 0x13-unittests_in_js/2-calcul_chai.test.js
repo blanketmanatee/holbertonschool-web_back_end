@@ -18,8 +18,18 @@ describe('calculateNumber type == SUBTRACT', () => {
 
 describe('calculateNumber type == DIVIDE', () => {
     it('checks output for DIVIDE', () => {
-        expect(calculateNumber('DIVIDE', 0.0, 2)).to.equal(0);
-        expect(calculateNumber('DIVIDE', -1, 1)).to.equal(-1);
+        expect(calculateNumber('DIVIDE', 10.0, 2)).to.equal(5);
+        expect(calculateNumber('DIVIDE', 10.3, 2)).to.equal(5);
+        expect(calculateNumber('DIVIDE', 10.7, 2)).to.equal(5.5);
+        expect(calculateNumber('DIVIDE', 10, 1.0)).to.equal(10);
+        expect(calculateNumber('DIVIDE', 10, 1.3)).to.equal(10);
+        expect(calculateNumber('DIVIDE', 10, 1.7)).to.equal(5);
+        expect(calculateNumber('DIVIDE', 10.3, 2)).to.equal(5);
+        expect(calculateNumber('DIVIDE', 10, 1.2)).to.equal(10);
+        expect(calculateNumber('DIVIDE', 10.3, 1.3)).to.equal(10);
+        expect(calculateNumber('DIVIDE', 10.7, 1.2)).to.equal(11);
+        expect(calculateNumber('DIVIDE', 10.3, 1.8)).to.equal(5);
+        expect(calculateNumber('DIVIDE', 10.6, 1.8)).to.equal(5.5);
         expect(calculateNumber('DIVIDE', 1, 0)).to.equal('Error');
     });
 });
