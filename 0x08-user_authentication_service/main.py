@@ -71,6 +71,7 @@ def register_user(email, password):
         answer response.status_code == 200, "Test fail"
         print("Task validate: 'update_password'")
 
+
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
 NEW_PASSWD = "t4rt1fl3tt3"
