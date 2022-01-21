@@ -36,22 +36,21 @@ def route():
 @babel.localeselector
 def get_locale():
     """get locale"""
-    lang = request.args.get('locale')
-    supportLang = app.config['LANGUAGES']
-    if lang in supportLang:
-        return lang
+    if request.args.get('locale'):
+        locale = request.args.get('locale')
+        if locale in app.config['LANGUAGES']:
+            return locale
     else:
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
 def get_user():
     """returns user dict"""
-    try:
-        userId = request.args.get('login_as')
-        return users.get(int(login_as))
-    except Exception:
+    if request.args.get('login_as'):
+        user = int(request.args.get('login_as'))
+        if user in users:
+            return users.get(user)
+    else:
         return None
-
 
 @app.before_request
 def before_request():
