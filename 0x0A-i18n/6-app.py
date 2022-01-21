@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Setup Babel"""
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext
 from os import getenv
+from typing import Union
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -22,11 +23,11 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config.from_object(Config)
+app.config.from_object('6-app.Config')
 """config for flask"""
 
 
-@app.route('/')
+@app.route('/', methods=['GET'], strict_slashes=False)
 def route():
     """flask app"""
     return render_template('6-index.html')
@@ -52,10 +53,11 @@ def get_locale():
 
 def get_user():
     """returns user dict"""
-    try:
-        userId = request.args.get('login_as')
-        return users[int(userId)]
-    except Exception:
+    if request.args.get('login_as'):
+        user = int(request.args.get('login_as'))
+        if user in users:
+            return users.get(user)
+    else:
         return None
 
 @app.before_request
